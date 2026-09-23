@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Inspect Extractor",
+  "version": "0.1.0",
+  "description": "Collects what DevTools captured on a page and writes it to a single text file.",
+  "devtools_page": "devtools.html",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "downloads"
+  ]
+}

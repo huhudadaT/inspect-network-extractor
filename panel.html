@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="panel.css">
+</head>
+<body>
+  <header class="bar">
+    <div class="types" id="types" role="tablist"></div>
+    <input id="query" class="query" type="search" placeholder="Search names and bodies" spellcheck="false">
+    <span class="count" id="count">0</span>
+    <button id="load" class="ghost">Load existing</button>
+    <button id="clear" class="ghost">Clear</button>
+  </header>
+
+  <div class="bar opts">
+    <span class="lede">Include</span>
+    <label class="check"><input type="checkbox" id="opt-index" checked>Index</label>
+    <label class="check"><input type="checkbox" id="opt-bodies" checked>Bodies</label>
+    <label class="check"><input type="checkbox" id="opt-reqhead">Request headers</label>
+    <label class="check"><input type="checkbox" id="opt-reshead">Response headers</label>
+    <label class="check"><input type="checkbox" id="opt-text">Page text</label>
+    <label class="check"><input type="checkbox" id="opt-dom">DOM</label>
+    <span class="spacer"></span>
+    <label class="check">Cap each body
+      <select id="limit" class="sel">
+        <option value="65536">64 KB</option>
+        <option value="262144" selected>256 KB</option>
+        <option value="1048576">1 MB</option>
+        <option value="0">No cap</option>
+      </select>
+    </label>
+  </div>
+
+  <div class="bar sel-bar">
+    <button id="sel-all" class="ghost">Select all</button>
+    <button id="sel-none" class="ghost">Select none</button>
+    <button id="sel-match" class="ghost">Select matches</button>
+    <button id="sel-text" class="ghost">Select text only</button>
+  </div>
+
+  <div class="scroll">
+    <table>
+      <thead>
+        <tr>
+          <th class="c-pick"></th>
+          <th class="c-num">#</th>
+          <th class="c-stat">Status</th>
+          <th class="c-type">Type</th>
+          <th class="c-name">Name</th>
+          <th class="c-size">Size</th>
+          <th class="c-body">Body</th>
+        </tr>
+      </thead>
+      <tbody id="rows"></tbody>
+    </table>
+    <p id="empty" class="empty">Reload the page with this panel open, or use Load existing to pull what the Network panel already has.</p>
+  </div>
+
+  <footer class="bar foot">
+    <span id="status" class="status"></span>
+    <span class="spacer"></span>
+    <span id="estimate" class="count"></span>
+    <button id="copy" class="ghost">Copy</button>
+    <button id="save" class="primary">Save .txt</button>
+  </footer>
+
+  <script src="panel.js"></script>
+</body>
+</html>
